@@ -12,10 +12,7 @@ public class Main {
         int[] myArray = getArray();
         printArray(myArray);
 
-        System.out.println("---------------------");
         reverse(myArray);
-        System.out.println("---------------------");
-
         printArray(myArray);
     }
 
@@ -40,15 +37,24 @@ public class Main {
     }
 
     private static void reverse(int[] array) {
-        int[] reversedArray = new int[array.length];
-        for(int i = 0; i < array.length; i++) {
-            reversedArray[i] = array[(array.length - 1) - i];
+//        int[] reversedArray = new int[array.length];
+//        for(int i = 0; i < array.length; i++) {
+//            reversedArray[i] = array[(array.length - 1) - i];
+//        }
+//        System.out.println("Original array = " + Arrays.toString(array));
+//        System.out.println("Reversed array = " + Arrays.toString(reversedArray));
+//        for(int j = 0; j < array.length; j++) {
+//            array[j] = reversedArray[j];
+//        }
+        int maxIndex = array.length - 1;
+        int halfPointIndex = array.length / 2;
+        for(int i = 0; i < halfPointIndex; i++) {
+            int temp = array[i];
+            array[i] = array[maxIndex - i];
+            array[maxIndex - i] = temp;
         }
-        System.out.println("Original array = " + Arrays.toString(array));
-        System.out.println("Reversed array = " + Arrays.toString(reversedArray));
-        for(int j = 0; j < array.length; j++) {
-            array[j] = reversedArray[j];
-        }
-        System.out.println("Reversed original array = " + Arrays.toString(array));
+//        System.out.println("---------------------");
+//        System.out.println("Reversed original array = " + Arrays.toString(array));
+//        System.out.println("---------------------");
     }
 }
