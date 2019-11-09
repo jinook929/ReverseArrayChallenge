@@ -53,8 +53,9 @@ public class Main {
             array[i] = array[maxIndex - i];
             array[maxIndex - i] = temp;
         }
-//        System.out.println("---------------------");
+        System.out.println("---------------------");
 //        System.out.println("Reversed original array = " + Arrays.toString(array));
-//        System.out.println("---------------------");
+        System.out.println("reverse() => Array has been reversed.");
+        System.out.println("---------------------");
     }
 }
