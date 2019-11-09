@@ -9,8 +9,14 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int[] newArray = getArray();
-        printArray(newArray);
+        int[] myArray = getArray();
+        printArray(myArray);
+
+        System.out.println("---------------------");
+        reverse(myArray);
+        System.out.println("---------------------");
+
+        printArray(myArray);
     }
 
     private static int[] getArray() {
@@ -30,11 +36,19 @@ public class Main {
     }
 
     private static void printArray(int[] array) {
-//        for(int i = 0; i < array.length; i++)
-        System.out.println("The array in the original order : " + Arrays.toString(array));
+        System.out.println("The current order of array elements : " + Arrays.toString(array));
     }
 
     private static void reverse(int[] array) {
-
+        int[] reversedArray = new int[array.length];
+        for(int i = 0; i < array.length; i++) {
+            reversedArray[i] = array[(array.length - 1) - i];
+        }
+        System.out.println("Original array = " + Arrays.toString(array));
+        System.out.println("Reversed array = " + Arrays.toString(reversedArray));
+        for(int j = 0; j < array.length; j++) {
+            array[j] = reversedArray[j];
+        }
+        System.out.println("Reversed original array = " + Arrays.toString(array));
     }
 }
