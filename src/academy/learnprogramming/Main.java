@@ -14,6 +14,7 @@ public class Main {
 
         reverse(myArray);
         printArray(myArray);
+        System.out.println("Sorted array : " + Arrays.toString(sortArray(myArray)));
     }
 
     private static int[] getArray() {
@@ -57,5 +58,40 @@ public class Main {
 //        System.out.println("Reversed original array = " + Arrays.toString(array));
         System.out.println("reverse() => Array has been reversed.");
         System.out.println("---------------------");
+    }
+
+    private static int[] sortArray(int[] array) {
+//        for(int i = 0; i < (array.length - 1); i++) {
+//            for(int j = 0; j < (array.length - 1); j++) {
+//                int temp;
+//                if(array[j] > array[j + 1]) {
+//                    temp = array[j];
+//                    array[j] = array[j + 1];
+//                    array[j + 1] = temp;
+//                }
+//            }
+//        }
+//
+//        return array;
+
+        int[] sortedArray = Arrays.copyOf(array, array.length);
+
+        boolean bubbleMark = true;
+        int temp;
+
+        while(bubbleMark) {
+            bubbleMark = false;
+
+            for(int i = 0; i < (sortedArray.length - 1); i++) {
+                if(sortedArray[i] > sortedArray[i + 1]) {
+                    temp = sortedArray[i];
+                    sortedArray[i] = sortedArray[i + 1];
+                    sortedArray[i + 1] = temp;
+                    bubbleMark = true;
+                }
+            }
+        }
+
+        return sortedArray;
     }
 }
